@@ -71,6 +71,22 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
+        Button(
+            onClick = {
+                // Reinicia o jogo
+                palavra = escolherPalavra()
+                letrasAdivinhadas.clear()
+                tentativasErradas = 0
+                input = ""
+            }
+        ) {
+            Text(text = "Reiniciar")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+
+
         Image(
             painter = painterResource(homemForcaImageResource),
             contentDescription = "Forca"
