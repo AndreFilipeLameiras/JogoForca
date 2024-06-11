@@ -8,8 +8,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -75,7 +78,15 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        BasicTextField(
+            value = input,
+            onValueChange = { input = it.take(1) },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        )
 
+        Spacer(modifier = Modifier.height(16.dp))
 }
 
 fun escolherPalavra(): Any {
