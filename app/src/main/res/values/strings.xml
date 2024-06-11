@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Jogo da Forca</string>
     <string name="adivinhar">Adivinha a palavra</string>
+    <string name="palavra">Escreva uma letra</string>
 </resources>

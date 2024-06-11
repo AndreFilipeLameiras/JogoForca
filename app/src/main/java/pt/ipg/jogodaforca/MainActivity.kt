@@ -64,6 +64,9 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
         5 -> R.drawable.forca5
         else -> R.drawable.forca6
     }
+
+    val jogoTerminado = tentativasErradas >= tentativasMaximas || palavra.all { letrasAdivinhadas.contains(it) }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -106,7 +109,8 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
                         input = ""
                     }
                 }
-            }
+            },
+            enabled = !jogoTerminado
         ) {
             Text(text = stringResource(R.string.adivinhar))
         }
