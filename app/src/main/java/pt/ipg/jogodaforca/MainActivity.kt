@@ -57,6 +57,7 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
     var tentativasErradas by remember { mutableStateOf(0) }
     val tentativasMaximas = 6
     var input by remember { mutableStateOf("") }
+    var mensagemErro by remember { mutableStateOf("") }
 
     val palavraMostrada =
         palavra.map { if (letrasAdivinhadas.contains(it)) it else '_' }.joinToString(" ")
@@ -136,8 +137,12 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
                         if (!palavra.contains(letra)) {
                             tentativasErradas++
                         }
+                        mensagemErro = ""
                         input = ""
+                    }else {
+                        mensagemErro = "A letra $letra já foi adivinhada "
                     }
+
                 }
             },
             enabled = !jogoTerminado
@@ -145,13 +150,27 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
             Text(text = stringResource(R.string.adivinhar))
         }
 
+        if (mensagemErro.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = mensagemErro,
+                color = MaterialTheme.colorScheme.error,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+
+
         Spacer(modifier = Modifier.height(16.dp))
 
 
         if (tentativasErradas >= tentativasMaximas) {
-            Text(text = "Você perdeu! A palavra era \"$palavra\".", style = MaterialTheme.typography.bodyMedium)
+            Text(
+                text = "Você perdeu! A palavra era \"$palavra\".",
+                style = MaterialTheme.typography.bodyMedium)
         } else if (palavra.all { letrasAdivinhadas.contains(it) }) {
-            Text(text = "Parabéns! Você adivinhou a palavra!", style = MaterialTheme.typography.bodyMedium)
+            Text(
+                text = "Parabéns! Você adivinhou a palavra!",
+                style = MaterialTheme.typography.bodyMedium)
         }
     }
 }
