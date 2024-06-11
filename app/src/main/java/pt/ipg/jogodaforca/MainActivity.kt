@@ -121,7 +121,8 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
             onValueChange = { input = it.take(1) },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(16.dp),
+            enabled = !jogoTerminado
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -175,7 +176,9 @@ fun EditTexField(
     keyboardOptions: KeyboardOptions,
     value: String,
     onValueChange: (String) -> Unit,
-    modifier: Modifier = Modifier) {
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true
+) {
 
     TextField(
         value = value,
@@ -184,7 +187,8 @@ fun EditTexField(
         label = { Text(stringResource(label))},
         singleLine = true,
         keyboardOptions = keyboardOptions,
-        modifier = modifier
+        modifier = modifier,
+        enabled = enabled
 
     )
 
