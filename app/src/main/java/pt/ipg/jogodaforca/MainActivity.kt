@@ -122,7 +122,8 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
     }
 }
 fun escolherPalavra(): String{
-    TODO("Not yet implemented")
+    val palavras = listOf("programacao", "android", "jogo", "forca", "desenvolvimento")
+    return palavras.random()
 }
 
 @Preview(showBackground = true)
