@@ -51,10 +51,11 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
     val tentativasMaximas = 6
     var input by remember { mutableStateOf("") }
 
-    val palavraMostrada = palavra.map { if (letrasAdivinhadas.contains(it)) it else '_' }.joinToString(" ")
+    val palavraMostrada =
+        palavra.map { if (letrasAdivinhadas.contains(it)) it else '_' }.joinToString(" ")
 
 
-    val homemForcaImageResource = when (tentativasErradas){
+    val homemForcaImageResource = when (tentativasErradas) {
         0 -> R.drawable.forca0
         1 -> R.drawable.forca1
         2 -> R.drawable.forca2
@@ -76,7 +77,10 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
 
         Text(text = "Palavra: $palavraMostrada", style = MaterialTheme.typography.bodyMedium)
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = "Tentativas restantes: ${tentativasMaximas - tentativasErradas}", style = MaterialTheme.typography.bodyLarge)
+        Text(
+            text = "Tentativas restantes: ${tentativasMaximas - tentativasErradas}",
+            style = MaterialTheme.typography.bodyLarge
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -108,9 +112,16 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
         }
 
         Spacer(modifier = Modifier.height(16.dp))
-}
 
-fun escolherPalavra(): Any {
+
+        if (tentativasErradas >= tentativasMaximas) {
+            Text(text = "Você perdeu! A palavra era \"$palavra\".", style = MaterialTheme.typography.bodyMedium)
+        } else if (palavra.all { letrasAdivinhadas.contains(it) }) {
+            Text(text = "Parabéns! Você adivinhou a palavra!", style = MaterialTheme.typography.bodyMedium)
+        }
+    }
+}
+fun escolherPalavra(): String{
     TODO("Not yet implemented")
 }
 
