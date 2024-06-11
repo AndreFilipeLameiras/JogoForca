@@ -46,6 +46,9 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
     val tentativasMaximas = 6
     var input by remember { mutableStateOf("") }
 
+    val palavraMostrada = palavra.map { if (letrasAdivinhadas.contains(it)) it else '_' }.joinToString(" ")
+
+
     val homemForcaImageResource = when (tentativasErradas){
         0 -> R.drawable.forca0
         1 -> R.drawable.forca1
@@ -66,6 +69,11 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
         Spacer(modifier = Modifier.height(16.dp))
 
 
+        Text(text = "Palavra: $palavraMostrada", style = MaterialTheme.typography.bodyMedium)
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Tentativas restantes: ${tentativasMaximas - tentativasErradas}", style = MaterialTheme.typography.bodyLarge)
+
+        Spacer(modifier = Modifier.height(16.dp))
 
 
 }
