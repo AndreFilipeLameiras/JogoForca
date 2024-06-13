@@ -101,6 +101,38 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
         )
         Spacer(modifier = Modifier.height(16.dp))
 
+        Text(
+            text = "Ajuda",
+            style = MaterialTheme.typography.bodyMedium)
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        if (palavra== "programacao") {
+            Text(text = "Área relacionada ao desenvolvimento de software.",style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra  == "android" ) {
+                Text(text = "Sistema operacional para dispositivos móveis.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra  == "jogo da forca" ) {
+            Text(text = "Jogo que estamos a jogar agora.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra  == "bicicleta" ) {
+            Text(text = "Veículo de duas rodas movido a pedal.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra == "cinema" ) {
+            Text(text = "Lugar onde se assiste a filmes.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra == "caneta" ) {
+            Text(text = "Objeto utilizado para escrever.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra == "elefante" ) {
+            Text(text = "Grande mamífero com tromba.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra == "universidade" ) {
+            Text(text = "Instituição de ensino superior.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra == "benfica" ) {
+            Text(text = "Clube de portugal.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra == "vermelho" ) {
+            Text(text = "Cor do arco-iris.", style = MaterialTheme.typography.bodyMedium)
+        }else if (palavra  == "futebol"){
+            Text(text = "Desporto que mais se prtica em Portugal.", style = MaterialTheme.typography.bodyMedium)
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
 
         Text(text = "Palavra: $palavraMostrada", style = MaterialTheme.typography.bodyMedium)
         Spacer(modifier = Modifier.height(16.dp))
@@ -175,7 +207,17 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
     }
 }
 fun escolherPalavra(): String{
-    val palavras = listOf("programacao", "android", "jogo", "forca", "desenvolvimento")
+    val palavras = listOf("programacao",
+        "android",
+        "jogo da forca",
+        "bicicleta",
+        "cinema",
+        "caneta",
+        "elefante",
+        "universidade",
+        "vermelho",
+        "benfica",
+        "futebol")
     return palavras.random()
 }
 
