@@ -110,7 +110,7 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
         if (palavra== "programacao") {
             Text(text = "Área relacionada ao desenvolvimento de software.",style = MaterialTheme.typography.bodyMedium)
         }else if (palavra  == "android" ) {
-                Text(text = "Sistema operacional para dispositivos móveis.", style = MaterialTheme.typography.bodyMedium)
+                Text(text = "Sistema operativo para dispositivos móveis.", style = MaterialTheme.typography.bodyMedium)
         }else if (palavra  == "jogo da forca" ) {
             Text(text = "Jogo que estamos a jogar agora.", style = MaterialTheme.typography.bodyMedium)
         }else if (palavra  == "bicicleta" ) {
@@ -128,7 +128,7 @@ fun ForcaWithButtonAndImage(modifier: Modifier = Modifier) {
         }else if (palavra == "vermelho" ) {
             Text(text = "Cor do arco-iris.", style = MaterialTheme.typography.bodyMedium)
         }else if (palavra  == "futebol"){
-            Text(text = "Desporto que mais se prtica em Portugal.", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "Desporto que mais se pratica em Portugal.", style = MaterialTheme.typography.bodyMedium)
         }
 
         Spacer(modifier = Modifier.height(16.dp))
